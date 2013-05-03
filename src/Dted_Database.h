@@ -25,8 +25,6 @@ using namespace std;
 class Dted_Database {
 public:
 
-    //! Provide access to object instance.
-    //static Dted_Database* Instance();
     Dted_Database();
 
     //! Clear the contents of the Dted database.

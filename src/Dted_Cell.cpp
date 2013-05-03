@@ -44,16 +44,15 @@ Dted_Cell::Dted_Cell(const string& dted_file)
       theSwCornerPost(),
       byteSwap(false)
 {
-    static const char MODULE[] = "Dted_Cell (Filename) Constructor";
     Endian endianObj;
 
     theFilename = dted_file;
 
     if (!open()) {
 
-        cerr << "FATAL " << MODULE << ": " << "\nCould not open file:  "
+        cerr << "FATAL: Could not open file:  "
                 << dted_file.c_str() << "\nReturning..." << std::endl;
-        cerr << "DEBUG " << MODULE << ": returning with error..." << std::endl;
+        cerr << "Returning with error..." << std::endl;
 
         return;
     }
@@ -365,12 +364,11 @@ double Dted_Cell::bilinearInterpolate(double xi, double yi, double p00,
 }
 
 double Dted_Cell::getPostValue(const Voxel& gridPt) {
-    static const char MODULE[] = "Dted_Cell::getPostValue";
 
     // Do some error checking.
     if (gridPt.x < 0.0 || gridPt.y < 0.0 || gridPt.x > (theNumLonLines - 1)
             || gridPt.y > (theNumLatPoints - 1)) {
-        cerr << "WARNING " << MODULE << ": No intersection..." << std::endl;
+        cerr << "WARNING : No intersection..." << std::endl;
         return theNullHeightValue;
     }
 
